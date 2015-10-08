@@ -2,7 +2,7 @@ body {
   line-height: 1.5;
 }
 
-header, main, #controls {
+header, main {
   margin: 1.5em 0 1.5em 0;
 }
 
@@ -36,5 +36,14 @@ h2 {
 p, label {
   font-family: 'Raleway', Arial, sans-serif;
   font-size: 16px;
+}
+
+#controls {
+  margin-top: 1em;
+}
+
+#error {
+  margin-left: 1em;
+  color: #FF3300;
 }
 

@@ -2,16 +2,22 @@ $(document).ready(function () {
   var metronome;
   var metronomeOn = false;
   var currentBpm = 0;
+  var $error = $("#error");
 
   var sound = document.createElement("audio");
   sound.setAttribute("src", "http://www.flashkit.com/imagesvr_ce/flashkit/soundfx/Instruments/Drums/Claves/idg_Clav-intermed-1390/idg_Clav-intermed-1390_hifi.mp3");
 
   $("#play").click(function () {
     var bpm = $("#bpm").val();
+    $error.text("");
     metronomeOn = resetIfNewBpm(bpm);
-    if (!metronomeOn && bpm > 0) {
-      metronome = startMetronome(bpm, sound);
-      metronomeOn = true;
+    if (bpm > 0) {
+      if (!metronomeOn) {
+        metronome = startMetronome(bpm, sound);
+        metronomeOn = true;
+      }
+    } else {
+      $error.text("BPM must be greater than 0");
     }
   });
 
